@@ -29,8 +29,11 @@ The edge file has columns for: source node ID, target node ID, summarized weight
 MainRFM.py -s log.git -nf nodes.csv -ef edges.csv
 ```
 Possible arguments:
+
 -s [git log source file to be read; must have extension .git]
+
 -nf [file name of the output CSV file that will contain the nodes]
+
 -ef [file name of the output CSV file that will contain the edges]
 
 
