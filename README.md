@@ -10,7 +10,7 @@ Currently only extracted Git logs are supported.
 
 Parses a git log extracted by this commando in the git bash:
 ```python
-git log --name-status --abbrev-commit --pretty=format:'%h,%an,%ad,%(trailers:key=Co-Authored-by,separator=%x2C,valueonly=TRUE)' --date=iso-local --diff-merges=c --no-renames
+git log --name-status --abbrev-commit --pretty=format:'%h,%an,%ad,%(trailers:key=Co-Authored-by,separator=%x2C,valueonly=TRUE)' --date=iso-local --diff-merges=c --no-renames > log.git
 `````
     
 
@@ -25,7 +25,17 @@ The edge file has columns for: source node ID, target node ID, summarized weight
 
 ## Usage
 
-Usage instructions will be provided soon.
+```python
+MainRFM.py -s log.git -nf nodes.csv -ef edges.csv
+```
+Possible arguments:
+
+-s [git log source file to be read; must have extension .git]
+
+-nf [file name of the output CSV file that will contain the nodes]
+
+-ef [file name of the output CSV file that will contain the edges]
+
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
