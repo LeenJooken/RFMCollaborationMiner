@@ -8,7 +8,11 @@ Code is still under construction, documentation on usage etc. will be provided s
 
 Currently only extracted Git logs are supported. 
 
-
+Parses a git log extracted by this commando in the git bash:
+```python
+git log --name-status --abbrev-commit --pretty=format:'%h,%an,%ad,%(trailers:key=Co-Authored-by,separator=%x2C,valueonly=TRUE)' --date=iso-local --diff-merges=c --no-renames
+`````
+    
 
 ## Supported output formats
 
