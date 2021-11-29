@@ -10,8 +10,6 @@ class Graph:
     def __init__(self,recencyWindowSizeEdge = 1440,recencyWindowSizeNode = 1440):
         self.nodes = []
         self.edges = []
-        self.clusterNodeslist = []
-        self.clusterEdgeslist = []
 
         #Recency window sizes
         self.recencyWindowSizeEdge = recencyWindowSizeEdge
@@ -59,7 +57,7 @@ class Graph:
         print("    Calculating the node weights")
         self.calculateNodeWeights(eventList)
 
-        
+
 
     #build the nodes list
     def buildNodesList(self,resources,worksessionsList):
