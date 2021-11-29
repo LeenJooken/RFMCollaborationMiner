@@ -13,7 +13,9 @@ Currently only extracted Git logs are supported.
 ## Supported output formats
 
 The program constructs a collaboration graph, which can be written to CSV files: 1 file for the edges, 1 file for the nodes.
+
 The node file has columns for: node ID, node label, summarized weight, recency value, frequency value, monetary value
+
 The edge file has columns for: source node ID, target node ID, summarized weight, recency value, frequency value, monetary value
 
 
