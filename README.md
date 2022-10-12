@@ -1,8 +1,8 @@
 # RFM Collaboration Miner
 
-RFM Collaboration Miner is a project that extracts and constructs a collaboration graph from an event log and calculates RFM values for both the resources and collaboration relationships.
+RFM Collaboration Miner is a project that extracts and constructs a collaboration network from an event log and calculates RFM values for both the resources and collaboration relationships.
 
-Code is still under construction, documentation on usage etc. will be provided soon.
+Documentation on usage etc. will be provided soon.
 
 ## Supported input formats
 
@@ -16,7 +16,7 @@ git log --name-status --abbrev-commit --pretty=format:'%h,%an,%ad,%(trailers:key
 
 ## Supported output formats
 
-The program constructs a collaboration graph, which can be written to CSV files: 1 file for the edges, 1 file for the nodes.
+The program constructs a collaboration network, which can be written to CSV files: 1 file for the collaboration relationships (edges), 1 file for the resources (nodes).
 
 The node file has columns for: node ID, node label, summarized weight, recency value, frequency value, monetary value
 
