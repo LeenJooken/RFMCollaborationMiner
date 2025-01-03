@@ -81,7 +81,7 @@ csMaxDuration = int(args.cs_duration)
 wsMaxIet = int(args.ws_iet)
 csMaxIet = int(args.cs_iet)
 
-log_file = "book3.git"
+
 #run the program
 main(log_file,nodes_file,edges_file,sessionData,wsMaxDuration,csMaxDuration,wsMaxIet,csMaxIet)
 
