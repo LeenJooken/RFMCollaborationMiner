@@ -148,7 +148,7 @@ class Log:
 
     #Function that parses the programmers from this list and returns an array of programmer objects
     #@param author: first author of this commit
-    #@param basicinfo: list with commitID,, author, date and then possible co-authors
+    #@param basicinfo: list with commitID, author, date and then possible co-authors
     #@return list of programmer objects that worked on the commit
     def getProgrammersGIT(self,author, basicinfo):
         programmers = []
@@ -202,11 +202,11 @@ class Log:
 
                 #comparison is case insensitive
                 if(programmerAlias.lower() == name.lower()):
-                #if(elem.getName() == name):
+
                     return elem
 
                 #Take typing errors into account using string comparison
-                #isTypo = False
+
                 #Toggle this to include typo check
                 isTypo = self.checkIfTypo(programmerAlias.lower(), name.lower())
                 #name is basically the same, only with a typo
@@ -226,14 +226,9 @@ class Log:
     #@param name2 = second name of the comparison
     #@returns True if both string have a high probability of being the same
     def checkIfTypo(self,name1, name2):
-        #normalizedHammingDistance = textdistance.hamming.normalized_similarity(name1,name2)
-        #levenshteinDistance = textdistance.levenshtein.normalized_similarity(name1,name2)
+
         jaroWinkler = textdistance.jaro_winkler(name1,name2)
-        #avgSimilarityScore = (normalizedHammingDistance + levenshteinDistance + jaroWinkler)/3
 
-
-
-        #if(avgSimilarityScore > 0.78):
         if (jaroWinkler > 0.92):
 
             return True
@@ -260,7 +255,7 @@ class Log:
 
             #check if file already exists
             file = self.searchFile(path)
-	        #file does not exist
+            #file does not exist
             if(not isinstance(file,Object.Object)):
                 file = self.makeFile(path, self.objectIterator)
 
@@ -274,7 +269,7 @@ class Log:
 
         return [files,fileStatus]
 
-    #Function that casts the GIT modifier status into the categories: {Added, Modified, Deleted}
+    #Function that classifies the GIT modifier status into the categories: {Added, Modified, Deleted}
     def translateModifierGIT(self, modifier):
         if "M" in modifier:
             return "Modified"
@@ -283,7 +278,7 @@ class Log:
         elif "D" in modifier:
             return "Deleted"
         else :
-            #print("Modifier unknown: ", modifier)
+
             return "Modified"
 
 

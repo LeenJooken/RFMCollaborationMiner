@@ -60,7 +60,7 @@ def determineRecencyValue(datapoints,bins,binWeights):
 
     #This value should be relative: % of all the datapoints: save this in array
     relFreq = []
-    for val, cnt in binValueCounts.iteritems():
+    for val, cnt in binValueCounts.items(): #iteritems():
         relFreq.append(cnt/totalNumberOfDP)
 
     #Sum of the binweight x relfreq for all the bins = the recency value

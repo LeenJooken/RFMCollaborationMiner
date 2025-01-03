@@ -18,10 +18,9 @@ class NodeWeightCalculator:
         self.eventList = eventList
 
         #Window size for the recency calculation
-        #TO DO: makes this a parameter
         self.recencyWindowSize = recencyWindowSize
 
-        #TODO weights as params
+        #Decide weight distribution for the summarized node weight
         self.weightR = 1/3
         self.weightF = 1/3
         self.weightM = 1/3
@@ -108,12 +107,13 @@ class NodeWeightCalculator:
     def calculateMonetaryValue(self):
         #object importance
         self.objectImportance()
-        return
-        #betweenness centrality
-        self.betweennessCentrality()
-        #eigenvector centrality
-        self.eigenvectorCentrality()
 
+        #When choosing between the following alternatives: please set the summarized edge weight distribution in the EdgeWeightCalculator!
+        #betweenness centrality
+        #self.betweennessCentrality()
+        #eigenvector centrality
+        #self.eigenvectorCentrality()
+        return
 
     #The importance of the collection of objects the resource worked on
     #Algorithm:
@@ -134,15 +134,15 @@ class NodeWeightCalculator:
     #Graph theory centrality measure
     #= number of shortest paths that pass through the vertex
     #high value if node is important gatekeeper of info between disparate parts of the graph
-    #So in our case: shows people that form a connection between many seperate collab teams
-    #A higher value is more likely to be a cross funcional team member / spans team boundaries
+    #So in our case: shows people that form a connection between many separate collab teams
+    #A higher value is more likely to be a cross functional team member / spans team boundaries
     def betweennessCentrality(self):
         networkXCalculation = NetworkXCalculation.NetworkXCalculation(self.nodes,self.edges)
         networkXCalculation.calculateBetweennessCentrality()
 
-        for n in nodes :
+        for node in self.nodes :
             betweenCentr =  self.networkXCalculation.getBetweennessCentrality(node)
-            n.setWeight(betweenCentr)
+            node.setWeight(betweenCentr)
 
     #Measures the influence a node has on a network:
     #A node will have a high eigenvector centrality if many important nodes link to it
@@ -150,12 +150,11 @@ class NodeWeightCalculator:
     def eigenvectorCentrality(self):
         networkXCalculation = NetworkXCalculation.NetworkXCalculation(self.nodes,self.edges)
         networkXCalculation.calculateEigenvectorCentrality()
-        for n in nodes:
+        for node in self.nodes:
             eigenvCentr = self.networkXCalculation.getEigenvectorCentrality(node)
-            n.setWeight(eigenvCentr)
+            node.setWeight(eigenvCentr)
 
     #Function that determines the final (summarized) weight of the node
-    #Maybe not necessary? Maybe the user should specify which dimension will be taken as the node weight?
     def determineFinalWeight(self):
         for n in self.nodes:
             n.calculateFinalWeight(self.weightR,self.weightF,self.weightM)

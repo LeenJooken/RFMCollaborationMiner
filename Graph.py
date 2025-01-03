@@ -91,7 +91,7 @@ class Graph:
                 #check if a collaboration edge should be constructed
                 self.constructCollaborationEdge(source,target,collaborations)
 
-    #Function that constructs a edge between the source and target if there is a collaboration
+    #Function that constructs an edge between the source and target if there is a collaboration
     #@param source : Resource object 1
     #@param target : Resource object 2
     #@param collaborations : list of Collaboration objects

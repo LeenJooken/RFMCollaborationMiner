@@ -7,7 +7,7 @@ class Collaboration:
     #@param resource2  : Resource object
     #@param timestampsRS1  : list of datetime object of when resource 1 worked on the object that are all considered part of the same collaboration
     #@param timestampsRS2  : list of datetime object of when resource 2 worked on the object that are all considered part of the same collaboration
-    #@pâram object :  Object object
+    #@param object :  Object object
     def __init__(self,resource1, resource2, object, timestampsRS1, timestampsRS2):
         self.resource1 = resource1
         self.timestampsResource1 = timestampsRS1
@@ -27,7 +27,19 @@ class Collaboration:
     def getObject(self):
         return self.object
 
+    def getFirstTimestamp(self):
+        timestamps = self.timestampsResource1 + self.timestampsResource2
 
+        timestamps.sort()
+
+        return timestamps[0]
+
+    def getLastTimestamp(self):
+        timestamps = self.timestampsResource1 + self.timestampsResource2
+
+        timestamps.sort()
+
+        return timestamps[-1]
 
     #@returns the median timestamp of all the timestamps in the collaboration
     def getMedianTimestamp(self):

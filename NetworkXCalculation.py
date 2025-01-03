@@ -14,7 +14,7 @@ class NetworkXCalculation:
     #Use the node and edge list to build a networkx graph
     def buildGraph(self):
         graph=nx.Graph()
-        #add nodes from a iterable container
+        #add nodes from an iterable container
         graph.add_nodes_from(self.nodes)
 
         #add edges as tuples
@@ -29,9 +29,9 @@ class NetworkXCalculation:
         b=nx.betweenness_centrality(self.graph,None, False, "weight",
                            True, None)
 
-        #normalize using the build-in function or by custom?
+
         #normalize based on min and max betweenness centrality instead of using the number of nodes,
-        #otherwise the values are way to small to make a real impact
+        #otherwise the values are too small to make a real impact
         maxValue = max(b.items(), key=operator.itemgetter(1))[1]
         minValue = min(b.items(), key=operator.itemgetter(1))[1]
         for node,bValue in b.items():

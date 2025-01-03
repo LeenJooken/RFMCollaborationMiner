@@ -98,7 +98,7 @@ class Object:
 
         importance = numberOfMonthsChanged/numberOfMonthsExistence
 
-        #TO DO: what if importance = 0 ?
+        #what if importance = 0 ?
         if importance == 0 :
             importance = 0.00001
 

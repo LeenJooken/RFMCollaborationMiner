@@ -46,12 +46,12 @@ class Resource:
     def getEvents(self):
         return self.events
 
-    #Append this event to the resource's list of events in which he was involved
+    #Append this event to the resource's list of events in which they were involved
     #@param event  : event object
     def addEvent(self,event):
         self.events.append(event)
 
-    #@returns a list of  all the objects this programmer worked on in his Event list
+    #@returns a list of  all the objects this resource worked on in their Event list
     def getListOfObjects(self):
         files = []
         for e in self.events:
@@ -62,7 +62,7 @@ class Resource:
         return files
 
     #@param file : Object object
-    #@returns a list of time stamps the programmer worked on this object
+    #@returns a list of time stamps the resource worked on this object
     def getTimestampsForObject(self,file):
         timestamps = []
         for e in self.events:

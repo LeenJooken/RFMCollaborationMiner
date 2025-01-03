@@ -11,10 +11,9 @@ class EdgeWeightCalculator:
         self.eventList = eventList
 
         #Window size for the recency calculation
-        #TO DO: makes this a parameter
         self.recencyWindowSize = recencyWindowSize
 
-        #TODO weights as parameters
+        #Decide weight distribution for the summarized edge weight
         self.weightR = 1/3
         self.weightF = 1/3
         self.weightM = 1/3

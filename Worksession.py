@@ -22,13 +22,38 @@ class Worksession:
                 objects.append(o)
         return objects
 
+    def getFirstTimestamp(self):
+        timestamps = []
+        for e in self.events :
+            ts = e.getTimestamp()
+
+            #only distinct timestamps to get an overview on which points in time events took place, not how many events
+            if ts not in timestamps:
+                timestamps.append(ts)
+
+        timestamps.sort()
+
+        return timestamps[0]
+
+    def getLastTimestamp(self):
+        timestamps = []
+        for e in self.events :
+            ts = e.getTimestamp()
+
+            #only distinct timestamps to get an overview on which points in time events took place, not how many events
+            if ts not in timestamps:
+                timestamps.append(ts)
+
+        timestamps.sort()
+
+        return timestamps[-1]
 
     #@returns the median timestamp of all the events in the worksession
     def getMedianTimestamp(self):
         timestamps = []
         for e in self.events :
             ts = e.getTimestamp()
-            #TODO: keep this or not?
+
             #only distinct timestamps to get an overview on which points in time events took place, not how many events
             if ts not in timestamps:
                 timestamps.append(ts)

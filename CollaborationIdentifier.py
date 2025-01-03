@@ -70,7 +70,7 @@ class CollaborationIdentifier:
     #@param source : Resource object
     #@param target : Programmer object
     #@param file : Object object they are collaborating on
-    #@condition: both resources should have worked on the object at least once (there has to be a timestamp of an event i which this resource worked on this object)
+    #@condition: both resources should have worked on the object at least once (there has to be a timestamp of an event in which this resource worked on this object)
     def identifyCollaborationsForPairFile(self,source,target,file):
         timestampsSource = source.getTimestampsForObject(file)
         timestampsSource.sort()
